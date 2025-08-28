@@ -69,6 +69,15 @@ const HeroSection: React.FC = () => {
               <span>{t('hero.cta.trader')}</span>
               <ArrowIcon className="w-5 h-5" />
             </a>
+
+            <a
+              href="/auth/register?role=consumer"
+              className="btn-accent inline-flex items-center space-x-3 rtl:space-x-reverse text-lg px-8 py-4 bg-accent/90 hover:bg-accent text-accent-foreground border border-accent/30"
+            >
+              <Shield className="w-5 h-5" />
+              <span>{isRTL ? 'انضم إلينا كمستهلك' : 'Join as Consumer'}</span>
+              <ArrowIcon className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Browse Products Link */}
