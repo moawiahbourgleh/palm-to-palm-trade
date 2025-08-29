@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MapPin, Calendar, Package, Scale, Palette, QrCode, Star, Heart, Eye, ArrowLeft, ArrowRight } from 'lucide-react';
+import { MapPin, Calendar, Package, Scale, Palette, QrCode, Star, Heart, Eye, ArrowLeft, ArrowRight, Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MockProduct } from '../types/database';
 import varietyImage from '../assets/dates-variety.jpg';
@@ -38,7 +38,8 @@ const ProductDetails: React.FC = () => {
       producer: {
         name: isRTL ? 'مزرعة الواحة الذهبية' : 'Golden Oasis Farm',
         location: isRTL ? 'الأحساء' : 'Al-Ahsa',
-        company: isRTL ? 'مزارع الأحساء' : 'Al-Ahsa Farms'
+        company: isRTL ? 'مزارع الأحساء' : 'Al-Ahsa Farms',
+        phone: '+966-50-123-4567'
       },
       images: [varietyImage],
       farmLocation: {
@@ -71,7 +72,8 @@ const ProductDetails: React.FC = () => {
       producer: {
         name: isRTL ? 'مزرعة النخيل الملكية' : 'Royal Palm Farm',
         location: isRTL ? 'القصيم' : 'Al-Qassim',
-        company: isRTL ? 'مزارع القصيم الملكية' : 'Royal Qassim Farms'
+        company: isRTL ? 'مزارع القصيم الملكية' : 'Royal Qassim Farms',
+        phone: '+966-55-987-6543'
       },
       images: [varietyImage],
       farmLocation: {
@@ -104,7 +106,8 @@ const ProductDetails: React.FC = () => {
       producer: {
         name: isRTL ? 'مزرعة المدينة المباركة' : 'Blessed Medina Farm',
         location: isRTL ? 'المدينة المنورة' : 'Medina',
-        company: isRTL ? 'مزارع المدينة المنورة' : 'Medina Farms'
+        company: isRTL ? 'مزارع المدينة المنورة' : 'Medina Farms',
+        phone: '+966-54-555-7890'
       },
       images: [varietyImage],
       farmLocation: {
@@ -314,6 +317,45 @@ const ProductDetails: React.FC = () => {
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* Contact Seller */}
+            <div className="bg-muted/30 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-foreground mb-4 flex items-center space-x-3 rtl:space-x-reverse">
+                <Phone className="w-6 h-6 text-primary" />
+                <span>{isRTL ? 'تواصل مع البائع' : 'Contact Seller'}</span>
+              </h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-4 bg-white rounded-lg border border-border/50">
+                  <div>
+                    <div className="font-semibold text-foreground">{product.producer.name}</div>
+                    <div className="text-muted-foreground text-sm">{product.producer.location}</div>
+                  </div>
+                  <div className="flex space-x-3 rtl:space-x-reverse">
+                    <a
+                      href={`tel:${product.producer.phone}`}
+                      className="btn-primary px-4 py-2 text-sm flex items-center space-x-2 rtl:space-x-reverse"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>{isRTL ? 'اتصال' : 'Call'}</span>
+                    </a>
+                    <a
+                      href={`https://wa.me/${product.producer.phone.replace(/[^0-9]/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary px-4 py-2 text-sm flex items-center space-x-2 rtl:space-x-reverse"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span>{isRTL ? 'واتساب' : 'WhatsApp'}</span>
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="text-center text-sm text-muted-foreground">
+                  {product.producer.phone}
+                </div>
+              </div>
             </div>
 
             {/* Action Buttons */}

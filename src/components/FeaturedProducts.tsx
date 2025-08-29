@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, MapPin, Eye, Heart, QrCode } from 'lucide-react';
+import { Star, MapPin, Eye, Heart, QrCode, Phone } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MockProduct } from '../types/database';
 import varietyImage from '../assets/dates-variety.jpg';
@@ -29,7 +29,8 @@ const FeaturedProducts: React.FC = () => {
       producer: {
         name: isRTL ? 'مزرعة الواحة الذهبية' : 'Golden Oasis Farm',
         location: isRTL ? 'الأحساء' : 'Al-Ahsa',
-        company: isRTL ? 'مزارع الأحساء' : 'Al-Ahsa Farms'
+        company: isRTL ? 'مزارع الأحساء' : 'Al-Ahsa Farms',
+        phone: '+966-50-123-4567'
       },
       images: [varietyImage],
       farmLocation: {
@@ -58,7 +59,8 @@ const FeaturedProducts: React.FC = () => {
       producer: {
         name: isRTL ? 'مزرعة النخيل الملكية' : 'Royal Palm Farm',
         location: isRTL ? 'القصيم' : 'Al-Qassim',
-        company: isRTL ? 'مزارع القصيم الملكية' : 'Royal Qassim Farms'
+        company: isRTL ? 'مزارع القصيم الملكية' : 'Royal Qassim Farms',
+        phone: '+966-55-987-6543'
       },
       images: [varietyImage],
       farmLocation: {
@@ -87,7 +89,8 @@ const FeaturedProducts: React.FC = () => {
       producer: {
         name: isRTL ? 'مزرعة المدينة المباركة' : 'Blessed Medina Farm',
         location: isRTL ? 'المدينة المنورة' : 'Medina',
-        company: isRTL ? 'مزارع المدينة المنورة' : 'Medina Farms'
+        company: isRTL ? 'مزارع المدينة المنورة' : 'Medina Farms',
+        phone: '+966-54-555-7890'
       },
       images: [varietyImage],
       farmLocation: {
@@ -197,6 +200,24 @@ const FeaturedProducts: React.FC = () => {
                     ))}
                   </div>
                   <span className="text-sm text-muted-foreground ml-2 rtl:ml-0 rtl:mr-2">(4.8)</span>
+                </div>
+
+                {/* Contact Seller */}
+                <div className="mb-4 p-3 bg-muted/30 rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                      <Phone className="w-4 h-4 text-primary" />
+                      <span className="text-sm font-medium text-foreground">
+                        {isRTL ? 'تواصل مع البائع' : 'Contact Seller'}
+                      </span>
+                    </div>
+                    <a
+                      href={`tel:${product.producer.phone}`}
+                      className="text-sm font-semibold text-primary hover:text-primary/80 smooth-transition"
+                    >
+                      {product.producer.phone}
+                    </a>
+                  </div>
                 </div>
 
                 {/* Price & CTA */}

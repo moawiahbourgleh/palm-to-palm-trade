@@ -123,6 +123,7 @@ export interface MockProduct extends Omit<Product, 'createdAt' | 'updatedAt'> {
     name: string;
     location: string;
     company?: string;
+    phone: string;
   };
   images: string[];
 }
