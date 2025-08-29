@@ -102,7 +102,16 @@ const HeroSection: React.FC = () => {
         }, {
           number: '50+',
           label: isRTL ? 'مدينة' : 'Cities'
-        }].map((stat, index) => {})}
+        }].map((stat, index) => (
+          <div key={index} className="text-center glass-effect rounded-xl p-6 border border-white/20">
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              {stat.number}
+            </div>
+            <div className="text-white/80 text-sm md:text-base">
+              {stat.label}
+            </div>
+          </div>
+        ))}
         </div>
       </div>
     </section>;
