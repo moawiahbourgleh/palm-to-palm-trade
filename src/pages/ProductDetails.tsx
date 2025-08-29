@@ -276,7 +276,7 @@ const ProductDetails: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">{isRTL ? 'الكمية المتاحة' : 'Available Quantity'}</span>
-                    <span className="font-semibold">{product.quantity} {isRTL ? 'علبة' : 'units'}</span>
+                    <span className="font-semibold">{product.quantity} {isRTL ? 'كجم' : 'kg'}</span>
                   </div>
                   
                   {product.harvestDate && (
